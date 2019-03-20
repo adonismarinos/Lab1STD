@@ -32,8 +32,8 @@ public class ServidorBytes {
         /*********************************************************/
         /* inicia a comunicacao */
         byte[] b = new byte[1024];
-        fluxoEntrada.read(b);
-        String mensagem = new String(b);
+        int total = fluxoEntrada.read(b);
+        String mensagem = new String(b,0,total);
         System.out.println("Cliente> " + mensagem);
         mensagem = "Oi, eu sou o servidor!";
         fluxoSaida.write(mensagem.getBytes());
